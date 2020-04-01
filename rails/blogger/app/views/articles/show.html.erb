@@ -1,0 +1,39 @@
+<div class="header">
+    <div class="menu">
+    </div>
+</div>
+<div class = "content_container">
+    <div class="page">
+        <div id= "articles">
+            <h1><%= @article.title %></h1>
+            <p><%= @article.body %></p>
+            <p>
+            <% if @article.image.exists? %>
+                <%= image_tag @article.image.url %>
+            <% end %>
+            </p>
+            
+            <p>
+                Tags:
+                <% @article.tags.each do |tag| %>
+                    <%= link_to tag.name, tag_path(tag) %>
+                <% end %>
+            </p>
+        </div>
+        <div class="comments_section">
+            <h3 class="comment_title"><div class="separation"></div>Comments ( <%= @article.comments.size %> )<div class="separation"></div></h3>
+            <%= render partial: "articles/comment", collection: @article.comments %>
+            <%= render partial: "comments/form" %>
+        </div> 
+    </div>
+
+        <div class= "side">
+            <div class="links">
+            <% if logged_in? %>
+                <%= link_to "Delete", article_path(@article), method: :delete, class: "delete", data: { confirm: "Do you really want to delete this article?" } %>
+                <%= link_to "Edit", edit_article_path(@article), class: "edit" %>
+            <% end %>
+                <%= link_to "Back", articles_path, class: "back" %>
+            </div>
+        </div>
+</div>

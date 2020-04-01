@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+    <div class="content">
+        <div class="item"><img src="images/rock.png" class='rock'></div>
+        <div class="item"><img src="images/paper.png" class="paper"></div>
+        <div class="item"><img src="images/scissors.png" class="scissors"></div>
+
+    </div>
+    <div class="para-container"></div>
+    <div class="score"></div>
+
+    <script>
+        const paraContainer = document.querySelector('.para-container');
+        const para = document.createElement('h2');
+        para.classList.add('result');
+        paraContainer.appendChild(para);
+
+        var scorePlayer = 0;
+        var scoreComputer = 0;
+        const scoreContainer = document.querySelector('.score');
+        const score = document.createElement('h2');
+        scoreContainer.appendChild(score);
+        score.classList.add("scoreText");
+
+        const images = document.querySelectorAll('.item');
+        images.forEach(images =>
+        images.addEventListener('click', function (e) {
+            const playerChoice = e.target.classList[0];
+            compareChoices(playerChoice, computerChoice());
+        }));
+
+        function computerChoice(){
+            var choice =  Math.random();
+            if (choice <= 0.34) choice = "rock";
+            if (choice < 0.68 && choice > 0.34) choice = "paper";
+            if (choice >= 0.68) choice = "scissors";
+            return choice;
+        }
+
+        function addScorePlayer(){
+            scorePlayer += 1;
+            win();
+            score.textContent = "Computer : " + scoreComputer + " / You : " + scorePlayer;
+        }
+
+        function addScoreComputer(){
+            scoreComputer += 1;
+            win();
+            score.textContent = "Computer : " + scoreComputer + " / You : " + scorePlayer;
+        }
+    
+        function win(){
+            if (scoreComputer == 5){
+                alert("You Lost...");
+                scoreComputer = 0;
+                scorePlayer = 0;
+            }
+            if (scorePlayer == 5){
+                alert("You Won!")
+                scoreComputer = 0;
+                scorePlayer = 0;
+            }
+        }
+        function compareChoices(choice1, choice2){
+            if (choice1 == choice2) {
+                para.textContent = 'This is a tigth!';
+                return;
+            }
+
+            if (choice1 == "rock"){
+                if (choice2 == "paper"){
+                    para.textContent = "Paper beats rock, you loose!";
+                    addScoreComputer()
+                }
+                else {
+                    para.textContent = "Rock beats scissors, you win!";
+                    addScorePlayer();
+
+                }
+            }
+
+            if (choice1 == "paper"){
+                if (choice2 == "scissors"){
+                    para.textContent = "Scissors beats paper, you loose!";
+                    addScoreComputer()
+                }
+                else {
+                    para.textContent = "Paper beats rock, you win!";
+                    addScorePlayer();
+
+                }
+            }
+
+            if (choice1 == "scissors"){
+                if (choice2 == "rock"){
+                    para.textContent = "Rock beats scissors, you loose!";
+                    addScoreComputer()
+                }
+                else {
+                    para.textContent = "Scissors beats paper, you win!";
+                    addScorePlayer();
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>

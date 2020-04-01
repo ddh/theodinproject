@@ -1,0 +1,182 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+
+.header-container {
+    width: 100%;
+    height: 60px;
+    background-color: #252525;
+    
+    /* border: 1px solid red; */
+
+    display: flex;
+
+}
+
+.search-bar-container {
+    /* border: 1px solid red; */
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#search-bar {
+    height: 54%;
+    width: 70%;
+
+    max-width: 570px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 300;
+    background-color: #121212;
+
+}
+
+.search-button {
+    height: 54%;
+    width: 55px;
+    background-color: #363636;
+    border: none;
+}
+
+.header-left-side {
+    width: 300px;
+    /* border: 1px solid red; */
+
+    display: flex;
+    align-items: center;
+}
+
+.left-icons,
+.rigth-icons {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: 13px;
+}
+
+.youtube-logo {
+    width: 89px;
+    padding-right: 13px;
+}
+
+.header-rigth-side {
+    width: 400px;
+    /* border: 1px solid red; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera-icon,
+.app-icon {
+    width: 24px;
+}
+
+.bell-icon,
+.account-icon {
+    width: 37px;
+}
+
+.header-container img {
+    margin: 10px;
+}
+
+/* CONTENT */
+
+content {
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: ;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+.video-container {
+
+    display: flex;
+    justify-content: c;
+    align-items: center;
+    border: 1px solid red;
+
+}
+
+.video {
+    border: 1px solid red;
+    width: 0%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 405px;
+    width: 720px;
+    padding: 20px;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.title {
+    color: #FFF;
+    /* border: 1px solid red; */
+    padding-left: 20px;
+    font-size: 19px;
+}
+
+.video-stats {
+    margin-left: 20px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: #AAAAAA;
+
+    display: flex;
+
+}
+
+.views {
+    border: 1px solid red;
+    width: 50%;
+}
+
+.like-container {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.like-container ul {
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: row;
+}
+
+.like-container li {
+    list-style: none;
+    margin-right: 20px;
+}

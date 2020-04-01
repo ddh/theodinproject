@@ -1,0 +1,23 @@
+<div class = "content_container">
+    <div class='page'>
+        <h1>All Articles</h1>
+
+        <ul id="articles">
+            <% @articles.each do |article| %>
+                <li>
+                <%= link_to article.title, article_path(article), class: "article_title" %>
+                    Created <%= distance_of_time_in_words(article.created_at, Time.now) %> ago            
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <div class="side">
+        <div class="links">
+        <% if logged_in? %>
+            <%= link_to "Create a new Article", new_article_path, class: "link" %>
+        <% end %>
+            <%= link_to "View all tags", tags_path, class: "link" %>
+            <%= link_to "Home page", articles_path %>
+        </div>
+    </div>
+</div>

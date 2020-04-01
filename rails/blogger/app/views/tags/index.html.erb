@@ -1,0 +1,18 @@
+<div class = "content_container">
+    <div class='page'>
+        <h1>All Tags</h1>
+
+        <ul id="articles">
+            <% @tags.each do |tag| %>
+                <li>
+                <%= link_to tag.name, tag_path(tag), class: "article_title" %>
+                </li>
+            <% end %>
+        </ul>
+    </div>
+    <div class='side'>
+        <div class="links">
+            <%= link_to "All Articles", articles_path, class: "link" %>
+        </div>
+    </div>
+</div>

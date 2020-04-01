@@ -1,0 +1,25 @@
+<div class="header">
+    <div class="menu">
+    </div>
+</div>
+<div class = "content_container">
+    <div class="page">
+        <h1>Articles tagged with <%= @tag.name %></h1>
+
+        <ul>
+        <% @tag.articles.each do |article| %>
+            <li> <%= link_to article.title, article_path(article) %> </li>
+        <% end %>
+        </ul>
+    </div>
+
+    <div class='side'>
+        <div class="links">
+            <%= link_to "Articles", articles_path, class: "back" %>
+            <%= link_to "Tags", tags_path, class: "link" %>
+            <% if logged_in? %>
+                <%= link_to "Delete this Tag", tag_path(@tag), method: :delete, class: "delete", data: { confirm: "Do you really want to delete this Tag ?" } %>
+            <% end %>
+        </div>
+    </div>
+</div>

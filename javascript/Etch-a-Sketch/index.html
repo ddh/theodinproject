@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="content"></div>
+    <div class="btnContainer">
+        <div class="btnBox">
+            <button class="newGridBtn">New Grid</button>
+        </div>
+        <div class="red">
+            <button class='color'></button>
+        </div>
+        <div class="blue"> 
+            <button class="color"></button>
+        </div>
+        <div class="black">
+            <button class="color"></button>
+        </div>
+        <div class="green">
+            <button class="color"></button>
+        </div>
+        <div class="btnBox">
+            <button class="clearBtn">Clear Grid</button>
+        </div>
+    </div>
+
+    <script>
+        const content = document.querySelector('.content');
+        
+
+        function createGrid(){
+
+            nbOfSquarePerRow = prompt("Enter the size of your Grid please : ");
+            console.log(nbOfSquarePerRow);
+            if (isNaN(nbOfSquarePerRow) || nbOfSquarePerRow == '' || nbOfSquarePerRow > 64){
+                alert("Please enter a valid number");
+                createGrid();
+                return;
+            }
+            x = nbOfSquarePerRow;
+            nbOfRow = nbOfSquarePerRow;
+            while (nbOfRow != 0){
+                const row = document.createElement('div');
+                row.classList.add('row');
+
+                while (nbOfSquarePerRow != 0){
+                    square = document.createElement('div');
+                    square.classList.add('square');
+                    nbOfSquarePerRow -= 1;
+                    row.appendChild(square);
+                }
+
+                nbOfRow -= 1;
+                while (nbOfSquarePerRow != x){
+                    nbOfSquarePerRow += 1;
+                }
+                
+                content.appendChild(row);
+            }
+
+        
+
+            document.querySelectorAll('.square').forEach(x => {
+            
+
+        const color = document.querySelectorAll('.color');
+        const red = document.querySelector('.red');
+        const blue = document.querySelector('.blue');
+        const black = document.querySelector('.black');
+        const green = document.querySelector('.green');
+
+
+        var colorPicked = 'black';
+        
+        red.addEventListener('click', () => {
+            colorPicked = "red";
+        });
+
+        blue.addEventListener('click', () => {
+            colorPicked = "blue";
+        });
+
+        black.addEventListener('click', () => {
+            colorPicked = "black";
+        });
+
+        green.addEventListener('click', () => {
+            colorPicked = "green";
+        });
+
+        
+            x.addEventListener('mouseover', function (e){
+                console.log(e);
+                e.target.style.background = colorPicked;
+                });
+            });
+        }
+        
+        const clearBtn = document.querySelector('.clearBtn');
+        clearBtn.addEventListener('click', () => {
+                document.querySelectorAll('.square').forEach(x => {
+                x.style.background = "white";
+            });
+        });
+
+        const newGridBtn = document.querySelector('.newGridBtn');
+        newGridBtn.addEventListener('click', () => {
+            document.querySelectorAll('.row').forEach(x => {
+                document.querySelector('.content').removeChild(document.querySelector(".row"));
+            });
+            createGrid();
+        });
+
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach(x => {
+            x.addEventListener('mousedown', () => {
+                    x.style.border = "4px solid blue"; 
+            });
+        });
+        buttons.forEach(x => {
+            x.addEventListener('mouseup', () => {
+                    x.style.border = "2px solid blue";  
+            });
+        });
+
+        
+
+        createGrid();
+    </script>
+    
+</body>
+</html>

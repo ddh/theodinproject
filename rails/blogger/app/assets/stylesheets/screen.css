@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis&display=swap);
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dosis';
+}
+
+body {
+    background-color: #E0E0E0;
+    color: rgb(33, 33, 33, 0.7);
+    height: 120vh;
+}
+
+.menu {
+    width: 100%;
+    height: 60px;
+    background-color: rgb(77, 208, 225, 0.7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(33, 33, 33, 0.5);
+    margin-bottom: 20px;
+    font-size: 21px;
+    padding: 5px;
+}
+
+.menu > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu > ul > li,
+.menu > ul > li > a:visited,
+.menu > ul > li > a:link {
+    list-style: none;
+    margin-right: 5px;
+    color: rgb(33, 33, 33, 0.7);
+}
+.menu > ul > li > a:hover {
+    color: rgb(33, 33, 33, 1);
+}
+
+
+
+.content_container {
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.page {
+    /* border: 1px solid green; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.side {
+    width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+.links {
+    border-left: 1px solid rgb(33, 33, 33, 0.5);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    background-color: rgb(77, 208, 225, 0.7);
+    font-size: 21px;
+    position: fixed;
+}
+
+.links > a {
+    margin: 10px;
+    text-decoration: none;
+    color: rgb(33, 33, 33, 0.8);
+    transform-origin: left;
+    transition: all 0.1s;
+}
+
+.links > a:hover {
+    transform: scale(1.1);
+}
+
+#articles {
+    /* border: 1px solid black; */
+    width: 90%;
+}
+
+.article_title {
+    height: 80px;
+    width: 90%;
+    margin: 3px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid rgb(33, 33, 33, 0.6);
+    padding-left: 10%;
+    transition: all 0.1s;
+    letter-spacing: 2px;
+    color: rgb(33, 33, 33, 0.8);
+}
+
+#articles > li {
+    list-style: none;
+    margin-bottom: 30px;
+}
+
+
+.article_title:hover {
+    transform: scale(1.1);
+}
+
+#articles > li > a {
+    font-size: 1.3rem;
+}
+
+#tags {
+    border: 1px solid red;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    font-size: 1.3rem;
+}
+
+#tags > li {
+    list-style: none;
+}
